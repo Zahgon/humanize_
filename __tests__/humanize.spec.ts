@@ -1,6 +1,9 @@
 /* eslint-env jasmine */
 
-import Humanize from '../src/humanize';
+// The Humanize source is authored as a UMD script (not an ES module) to
+// preserve its original runtime behavior, so it is loaded via require().
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const Humanize: HumanizeStatic = require('../src/humanize');
 
 describe('When using method via destructured assignment', () => {
   it('should properly reference other Humanize methods', () => {

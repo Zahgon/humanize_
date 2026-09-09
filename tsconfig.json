@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["es2017"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["node", "jasmine"],
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*",
+    "__tests__/**/*",
+    "bin/**/*",
+    "types/**/*"
+  ]
+}

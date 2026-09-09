@@ -1,3 +1,8 @@
+### Unreleased
+- Migrate source, tests, and build tooling from JavaScript (Babel) to TypeScript
+- Ship TypeScript type declarations (`dist/humanize.d.ts`)
+- No runtime behavior changes; public API is unchanged
+
 ### 1.8.2
 - Close Humanize in UMD wrapper to prevent global variables
 

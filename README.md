@@ -16,7 +16,7 @@ Humanize Plus is available via node package manager.
 Or download the [minified version][min] or the [full version][max].
 
 [min]: https://raw.github.com/HubSpot/humanize/master/dist/humanize.min.js
-[max]: https://raw.github.com/HubSpot/humanize/master/src/humanize.js
+[max]: https://raw.github.com/HubSpot/humanize/master/dist/humanize.js
 
 In your web page:
 
@@ -36,6 +36,18 @@ In your node package.json:
 ```
 
 For recent changes, see the [changelog](https://github.com/HubSpot/humanize/blob/master/CHANGELOG.md).
+
+### TypeScript
+
+The library is written in TypeScript and ships with type declarations
+(`dist/humanize.d.ts`), so no `@types` package is needed:
+
+```typescript
+import Humanize = require('humanize-plus');
+
+const capitalized: string = Humanize.capitalize('ten tiny ducklings.');
+// "Ten tiny ducklings."
+```
 
 ## API Methods
 
@@ -312,19 +324,33 @@ Humanize.normalizePrecision(-232.231)
 ```
 
 ## Important notes
-Please don't edit files in the `dist` subdirectory as they are generated through compilation. You'll find source code in the `src` subdirectory!
+Please don't edit files in the `dist` subdirectory as they are generated through compilation. You'll find the TypeScript source code in the `src` subdirectory!
 
 ## Compiling
 
-`npm run install && npm run build`
+The project is written in TypeScript (`src/humanize.ts`). Node.js >= 18 is required for development.
+
+`npm install && npm run build`
 
 And that's it!
 
-The project will compile the CoffeeScript files into the `dist` subdirectory.
+The build compiles the TypeScript source into the `dist` subdirectory:
+
+- `dist/humanize.js` — the ES5 UMD build (CommonJS + AMD + browser global), compiled with `tsc`
+- `dist/humanize.min.js` — the minified build, produced with `uglify-js`
+- `dist/humanize.d.ts` — the TypeScript type declarations
+
+Other useful scripts:
+
+- `npm run compile` — compile TypeScript to `dist` only
+- `npm run watch` — recompile on changes
+- `npm run typecheck` — typecheck all sources and tests without emitting
 
 ## Testing
 
 `npm run test`
+
+Tests are written in TypeScript (`__tests__/humanize.spec.ts`) and run with jasmine via ts-node.
 
 
 ## License

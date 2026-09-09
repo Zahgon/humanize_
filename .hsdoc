@@ -1,1 +1,1 @@
-source: "coffee/src/*.coffee"
+source: "src/*.ts"
